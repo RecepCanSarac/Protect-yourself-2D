@@ -1104,6 +1104,24 @@ Transform:
   m_Father: {fileID: 964959575}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1166487765 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8694443333809543344, guid: 174e27aa7069e984a9594cc04bfd461a, type: 3}
+  m_PrefabInstance: {fileID: 8694443334142134413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1166487771
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166487765}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1179796692
 GameObject:
   m_ObjectHideFlags: 0
@@ -2258,6 +2276,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5931383719860176311, guid: 3ccc2f48c4560ab488501bf0dce8e913, type: 3}
+      propertyPath: enemy1
+      value: 
+      objectReference: {fileID: 7089228867395165872, guid: 61f6e1c3568839846aaa0ea0d7a5f840, type: 3}
     - target: {fileID: 5931383719860176311, guid: 3ccc2f48c4560ab488501bf0dce8e913, type: 3}
       propertyPath: skorTXT
       value: 
