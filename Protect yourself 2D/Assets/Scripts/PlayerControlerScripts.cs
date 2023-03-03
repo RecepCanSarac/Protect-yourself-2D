@@ -6,14 +6,16 @@ public class PlayerControlerScripts : MonoBehaviour
 {
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform shootPoint;
-    [SerializeField] private float Force;
+    [SerializeField] public static float Force;
     public float fireRate;
-
+    newNamluScripts namlu;
     float nextTimeFire = 0;
 
     void Start()
     {
-        
+        namlu = GetComponent<newNamluScripts>();
+        namlu.enabled = false;
+        Force = 750;
     }
 
     // Update is called once per frame
@@ -34,7 +36,7 @@ public class PlayerControlerScripts : MonoBehaviour
     }
     private void shoot()
     {
-       GameObject bulletIns =  Instantiate(bullet,shootPoint.position,transform.rotation);
+        GameObject bulletIns =  Instantiate(bullet,shootPoint.position,transform.rotation);
         bulletIns.GetComponent<Rigidbody>().AddForce(transform.up * Force);
         Destroy(bulletIns,1.5f);
     }
