@@ -7,7 +7,7 @@ public class PlayerControlerScripts : MonoBehaviour
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform shootPoint;
     [SerializeField] public static float Force;
-    public float fireRate;
+    public static float fireRate;
     newNamluScripts namlu;
     float nextTimeFire = 0;
 
@@ -16,6 +16,7 @@ public class PlayerControlerScripts : MonoBehaviour
         namlu = GetComponent<newNamluScripts>();
         namlu.enabled = false;
         Force = 750;
+        fireRate = 4;
     }
 
     // Update is called once per frame
@@ -27,6 +28,7 @@ public class PlayerControlerScripts : MonoBehaviour
             shoot();
         }
         mousePosition();
+        Debug.Log(fireRate);
     }
 
     private void mousePosition()

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text skorTXT;
     [SerializeField] private Text waveTXT;
     public static int skor;
+    
     void Start()
     {
        
@@ -28,6 +29,12 @@ public class GameManager : MonoBehaviour
         {
             SpawnpointScripts.wave = 3;
         }
+
+
+       
+
+
+
        
     }
 }

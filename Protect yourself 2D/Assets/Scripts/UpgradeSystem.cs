@@ -15,7 +15,7 @@ public class UpgradeSystem : MonoBehaviour
     int random3;
     string butonIciText;
 
-
+    public GameObject UpgradePanel;
 
     newNamluScripts player;
     public GameObject playerScript;
@@ -24,32 +24,15 @@ public class UpgradeSystem : MonoBehaviour
     void Start()
     {
         player = playerScript.GetComponent<newNamluScripts>();
-        random1 = Random.Range(0, upgrades.Length);
-        random2 = Random.Range(0, upgrades.Length);
-        random3 = Random.Range(0, upgrades.Length);
 
-        if (random1 == random2)
-        {
-            random1 = Random.Range(0, upgrades.Length);
-            
-        }
-        else if (random1 == random3 )
-        {
-            random3 = Random.Range(0, upgrades.Length);
-        }
-        else if (random3 == random2)
-        {
-            random2 = Random.Range(0, upgrades.Length);
-        }
-        GameObject.Find("random1").GetComponentInChildren<Text>().text = upgrades[random1];
-        GameObject.Find("random2").GetComponentInChildren<Text>().text = upgrades[random2];
-        GameObject.Find("random3").GetComponentInChildren<Text>().text = upgrades[random3];
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+        WaveTimer();    
 
     }
 
@@ -57,7 +40,8 @@ public class UpgradeSystem : MonoBehaviour
     {
         butonIciText = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.transform.GetChild(0).GetComponent<Text>().text;
         newNamlu();
-        button2Func();
+        AttackSpeed();
+        
     }
 
     void newNamlu()
@@ -65,14 +49,57 @@ public class UpgradeSystem : MonoBehaviour
         if (butonIciText == "+1 Namlu")
         {
             player.enabled = true;
+
+            UpgradePanel.SetActive(false);
+            Time.timeScale = 1;
         }
     }
 
-    void button2Func()
+    void AttackSpeed()
     {
-        if (butonIciText == "Delici Mermi ")
+        if (butonIciText == "Ateş Hızı")
         {
-            Debug.Log("Mermiler Delsin");
+            PlayerControlerScripts.fireRate += 2;
+            UpgradePanel.SetActive(false);
+            Time.timeScale = 1;
         }
     }
+
+
+
+    void PanaleAvtive()
+    {
+       
+        
+        random1 = Random.Range(0, upgrades.Length);
+        random2 = Random.Range(0, upgrades.Length);
+        random3 = Random.Range(0, upgrades.Length);
+        
+        GameObject.Find("random1").GetComponentInChildren<Text>().text = upgrades[random1];
+        GameObject.Find("random2").GetComponentInChildren<Text>().text = upgrades[random2];
+        GameObject.Find("random3").GetComponentInChildren<Text>().text = upgrades[random3];
+        
+
+
+    }
+
+    void WaveTimer()
+    {
+
+        if (SpawnpointScripts.wave == 2)
+        {
+            UpgradePanel.SetActive(true);
+            PanaleAvtive();
+            Time.timeScale = 0;
+
+
+        }
+    }
+
+
+    public void DeAvtivePanel()
+    {
+        UpgradePanel.SetActive(false);
+    }
 }
+

@@ -514,7 +514,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: +1 Namlu
+  m_Text: 
 --- !u!222 &362594573
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1430,7 +1430,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Delici Mermi
+  m_Text: 
 --- !u!222 &1104834052
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1848,7 +1848,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Ate\u015F H\u0131z\u0131"
+  m_Text: 
 --- !u!222 &1264680361
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2591,6 +2591,8 @@ MonoBehaviour:
   - "Ate\u015F H\u0131z\u0131"
   - 'Delici Mermi '
   - "2 li Ate\u015F "
+  UpgradePanel: {fileID: 2075614396}
+  playerScript: {fileID: 1166487765}
 --- !u!4 &1757081955
 Transform:
   m_ObjectHideFlags: 0
@@ -2933,7 +2935,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2075614397
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3066,6 +3068,10 @@ PrefabInstance:
       propertyPath: waveTXT
       value: 
       objectReference: {fileID: 1314413756}
+    - target: {fileID: 5931383719860176311, guid: 3ccc2f48c4560ab488501bf0dce8e913, type: 3}
+      propertyPath: upgradePanel
+      value: 
+      objectReference: {fileID: 2075614396}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ccc2f48c4560ab488501bf0dce8e913, type: 3}
 --- !u!1001 &8694443334142134413
@@ -3081,7 +3087,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8548927008933564865, guid: 174e27aa7069e984a9594cc04bfd461a, type: 3}
       propertyPath: fireRate
-      value: 10
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8548927008933564865, guid: 174e27aa7069e984a9594cc04bfd461a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8694443333809543344, guid: 174e27aa7069e984a9594cc04bfd461a, type: 3}
       propertyPath: m_Name
@@ -3089,7 +3099,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8694443333809543346, guid: 174e27aa7069e984a9594cc04bfd461a, type: 3}
       propertyPath: fireRate
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8694443333809543375, guid: 174e27aa7069e984a9594cc04bfd461a, type: 3}
       propertyPath: m_RootOrder

@@ -6,7 +6,6 @@ public class newNamluScripts : MonoBehaviour
 {
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform shootPoint;
-    public float fireRate;
     int force;
     float nextTimeFire = 0;
     void Start()
@@ -19,7 +18,7 @@ public class newNamluScripts : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && Time.time > nextTimeFire)
         {
-            nextTimeFire = Time.time + 1 / fireRate;
+            nextTimeFire = Time.time + 1 / PlayerControlerScripts.fireRate;
             shoot();
         }
     }
