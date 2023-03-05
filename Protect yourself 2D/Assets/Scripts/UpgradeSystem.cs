@@ -1,105 +1,100 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UpgradeSystem : MonoBehaviour
 {
-    [SerializeField] private GameObject randomBTN1;
-    [SerializeField] private GameObject randomBTN2;
-    [SerializeField] private GameObject randomBTN3;
-    [SerializeField] private string[] upgrades;
-    int random1;
-    int random2;
-    int random3;
-    string butonIciText;
-
-    public GameObject UpgradePanel;
-
-    newNamluScripts player;
-    public GameObject playerScript;
+    [SerializeField] private string[] UpgradesTexts;
+    [SerializeField] private GameObject Random1,Random2,Random3,UpgradePanel,newGUN;
+    private int random1, random2, random3;
+    string ButtonTXT;
+    newNamluScripts newGunScripts;
 
 
     void Start()
     {
-        player = playerScript.GetComponent<newNamluScripts>();
-
-        
+        newGunScripts = newGUN.GetComponent<newNamluScripts>();
+        random1 = Random.Range(0,UpgradesTexts.Length);
+        random2 = Random.Range(0,UpgradesTexts.Length);
+        random3 = Random.Range(0,UpgradesTexts.Length);
+        if (random1 == random2)
+        {
+            random1 = Random.Range(0, UpgradesTexts.Length);
+            random2 = Random.Range(0, UpgradesTexts.Length);
+        }
+        else if (random1 == random3)
+        {
+            random1 = Random.Range(0, UpgradesTexts.Length);
+            random3 = Random.Range(0, UpgradesTexts.Length);
+        }
+        else if (random2 == random3)
+        {
+            random2 = Random.Range(0, UpgradesTexts.Length);
+            random3 = Random.Range(0, UpgradesTexts.Length);
+        }
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-
-        WaveTimer();    
-
+        if (UpgradePanel.active == true)
+        {
+            GameObject.Find("Random1").GetComponentInChildren<Text>().text = UpgradesTexts[random1];
+            GameObject.Find("Random2").GetComponentInChildren<Text>().text = UpgradesTexts[random2];
+            GameObject.Find("Random3").GetComponentInChildren<Text>().text = UpgradesTexts[random3];
+        }
     }
 
-    public void buttonaBasildi()
+    public void ButtonActive()
     {
-        butonIciText = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.transform.GetChild(0).GetComponent<Text>().text;
-        newNamlu();
+        ButtonTXT = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.transform.GetChild(0).GetComponent<Text>().text;
+        Debug.Log(ButtonTXT);
+        random1 = Random.Range(0, UpgradesTexts.Length);
+        random2 = Random.Range(0, UpgradesTexts.Length);
+        random3 = Random.Range(0, UpgradesTexts.Length);
+        if (random1 == random2)
+        {
+            random1 = Random.Range(0, UpgradesTexts.Length);
+            random2 = Random.Range(0, UpgradesTexts.Length);
+        }
+        else if (random1 == random3)
+        {
+            random1 = Random.Range(0, UpgradesTexts.Length);
+            random3 = Random.Range(0, UpgradesTexts.Length);
+        }
+        else if (random2 == random3)
+        {
+            random2 = Random.Range(0, UpgradesTexts.Length);
+            random3 = Random.Range(0, UpgradesTexts.Length);
+        }
+        newGun();
         AttackSpeed();
-        
-    }
-
-    void newNamlu()
-    {
-        if (butonIciText == "+1 Namlu")
-        {
-            player.enabled = true;
-
-            UpgradePanel.SetActive(false);
-            Time.timeScale = 1;
-        }
-    }
-
-    void AttackSpeed()
-    {
-        if (butonIciText == "Ateş Hızı")
-        {
-            PlayerControlerScripts.fireRate += 2;
-            UpgradePanel.SetActive(false);
-            Time.timeScale = 1;
-        }
-    }
-
-
-
-    void PanaleAvtive()
-    {
-       
-        
-        random1 = Random.Range(0, upgrades.Length);
-        random2 = Random.Range(0, upgrades.Length);
-        random3 = Random.Range(0, upgrades.Length);
-        
-        GameObject.Find("random1").GetComponentInChildren<Text>().text = upgrades[random1];
-        GameObject.Find("random2").GetComponentInChildren<Text>().text = upgrades[random2];
-        GameObject.Find("random3").GetComponentInChildren<Text>().text = upgrades[random3];
-        
-
-
-    }
-
-    void WaveTimer()
-    {
-
-        if (SpawnpointScripts.wave == 2)
-        {
-            UpgradePanel.SetActive(true);
-            PanaleAvtive();
-            Time.timeScale = 0;
-
-
-        }
-    }
-
-
-    public void DeAvtivePanel()
-    {
         UpgradePanel.SetActive(false);
     }
-}
 
+
+    private void newGun()
+    {
+        if (ButtonTXT == "+1 Gun")
+        {
+            newGunScripts.GetComponent<newNamluScripts>().enabled = true;
+        }
+    }
+
+    private void AttackSpeed()
+    {
+        if (ButtonTXT == "Attack Speed")
+        {
+            PlayerControlerScripts.fireRate += 2;
+        }
+    }
+    private void DoubleFire()
+    {
+        if (ButtonTXT == "Double Fire")
+        {
+            newGunScripts.GetComponent<DoubleFire>().enabled = true;
+        }
+    }
+
+}

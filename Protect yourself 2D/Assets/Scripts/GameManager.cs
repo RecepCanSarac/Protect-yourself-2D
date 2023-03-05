@@ -29,12 +29,5 @@ public class GameManager : MonoBehaviour
         {
             SpawnpointScripts.wave = 3;
         }
-
-
-       
-
-
-
-       
     }
 }

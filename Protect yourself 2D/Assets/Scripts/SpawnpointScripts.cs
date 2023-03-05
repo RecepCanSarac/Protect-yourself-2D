@@ -12,9 +12,8 @@ public class SpawnpointScripts : MonoBehaviour
     [SerializeField] float enemy2Timer;
     [SerializeField] float enemy3Timer;
     public static int wave;
-    //public GameManager gameManager;
-    //GameManager gamemanagerr;
-     
+
+  
     void Start()
     {
         wave = 1;
@@ -29,6 +28,7 @@ public class SpawnpointScripts : MonoBehaviour
     {
         if (wave == 2)
         {
+            
             enemy2.active = true;
         }
         else if (wave == 3)
